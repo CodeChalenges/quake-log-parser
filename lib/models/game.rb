@@ -1,4 +1,4 @@
-class QuakeLog
+class Game
   attr_reader :players, :kills
 
   def initialize

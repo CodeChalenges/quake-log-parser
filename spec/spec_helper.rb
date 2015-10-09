@@ -5,8 +5,9 @@
 #
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 require_relative '../lib/models/kill_event'
-require_relative '../lib/models/quake_log'
+require_relative '../lib/models/game'
 require_relative '../lib/models/player_stats'
+require_relative '../lib/parser'
 
 RSpec.configure do |config|
   config.treat_symbols_as_metadata_keys_with_true_values = true
