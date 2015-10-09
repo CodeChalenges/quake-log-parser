@@ -1,15 +1,15 @@
 # coding: utf-8
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'quake/log/parser/version'
+require 'version'
 
 Gem::Specification.new do |spec|
   spec.name          = "quake-log-parser"
-  spec.version       = Quake::Log::Parser::VERSION
+  spec.version       = QuakeLogParser::VERSION
   spec.authors       = ["Mauricio Klein"]
-  spec.email         = ["mauricio.klein@zenvia.com"]
-  spec.description   = %q{TODO: Write a gem description}
-  spec.summary       = %q{TODO: Write a gem summary}
+  spec.email         = ["mauricio.klein.msk@gmail.com"]
+  spec.description   = %q{A Quake log parser, written in Ruby}
+  spec.summary       = %q{A Quake log parser, written in Ruby}
   spec.homepage      = ""
   spec.license       = "MIT"
 
