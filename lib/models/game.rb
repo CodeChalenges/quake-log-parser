@@ -1,3 +1,12 @@
+#
+# GAME CLASS:
+#
+# Holds all information related to a single game.
+#
+# CreatedBy: Mauricio Klein (mauricio.klein.msk@gmail.com)
+# CreatedAt: Oct 10, 2015
+#
+
 require 'hmap'
 
 class Game
@@ -9,6 +18,9 @@ class Game
     @nkills  = 0
   end
 
+  #
+  # Assign a new game kill
+  #
   def assignKill(killer_name, killed_name, cause)
     # Assign a new death to killed player
     killed = getPlayerStats(killed_name)
@@ -26,7 +38,6 @@ class Game
       @kills.push(KillEvent.new(killer, killed, cause))
     end
 
-    # Increment game kills counter
     @nkills += 1
   end
 
@@ -40,17 +51,36 @@ class Game
       players: @players.keys,
       kills: @players.hmap { |name, stats|
         { name => stats.kills }
-      }
+      },
+      kills_by_means: killByMeansHash
     }
   end
 
   private
+    #
+    # If a player stats object already exists, returns it.
+    # Otherwise, creates a new one
+    #
     def getPlayerStats(player_name)
-      # If the player doesn't exist yet, create a new stats holder
       unless @players.has_key?(player_name)
         @players[player_name] = PlayerStats.new
       end
 
       @players[player_name]
+    end
+
+    #
+    # Create a hash of game kills,
+    # grouped by mean
+    #
+    def killByMeansHash
+      killByMeansHash = Hash.new
+
+      @kills.map { |kill|
+        accumulated = killByMeansHash.has_key?(kill.cause) ? killByMeansHash[kill.cause] : 0
+        killByMeansHash[kill.cause] = accumulated + 1
+      }
+
+      killByMeansHash
     end
 end

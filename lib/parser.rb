@@ -22,7 +22,7 @@ class Parser
         end
       end
     rescue => err
-      puts "Failed to read log file:  #{err}"
+      puts "Failed to read log file: #{err}"
       err
     end
   end
@@ -35,7 +35,7 @@ class Parser
   private
     def parseKillLine(line)
       kill_line = line.split(':').last
-      kill_info = kill_line.split(Regexp.union(/killed/,/by/))
+      kill_info = kill_line.split(ParserRules.KillSplit)
 
       killer = kill_info[0].strip
       killed = kill_info[1].strip
