@@ -33,21 +33,40 @@ describe Game do
       expect(@game.number_of_kills).to eq(2)
       expect(@game.players.length ).to eq(2)
     end
+
+    it 'should assign <world> kill, but not create kill entry' do
+      @game.assignKill(@killer_name, @killed_name, @cause) # Assign a player -> player kill
+      @game.assignKill('<world>'   , @killed_name, @cause) # Assign a world  -> player kill
+
+      expect(@game.number_of_kills).to eq(2)
+      expect(@game.players.length ).to eq(2) # Only "#Killer" and "#Killed", not "<world>"
+    end
   end
 
   context 'Object to hash' do
     before(:all) do
       @game = Game.new
-      @killer = '#Killer'
-      @killed = '#Killed'
+      @killer_name = '#Killer'
+      @killed_name = '#Killed'
       @cause  = '#Cause'
 
-      @game.assignKill(@killer, @killed, @cause)
+      @game.assignKill(@killer_name, @killed_name, @cause)
     end
 
     it 'should create the correct hash' do
-      expected_hash = "{:total_kills=>#{@game.number_of_kills}, :players=>[\"#{@killer}\", \"#{@killed}\"], :kills=>{\"#{@killer}\"=>1, \"#{@killed}\"=>0}}"
-      expect(@game.to_hash.to_s).to eq(expected_hash)
+      game_hash = @game.to_hash
+
+      expect(game_hash[:total_kills]).to eq(@game.number_of_kills)
+
+      # Should have 2 players: "#Killer" and "#Killed"
+      expect(game_hash[:players].length).to eq(2)
+      expect(game_hash[:players].include?(@killer_name)).to be true
+      expect(game_hash[:players].include?(@killed_name)).to be true
+
+      # Should generate a kill report for both players
+      expect(game_hash[:kills].length).to eq(2)
+      expect(game_hash[:kills][@killer_name]).to eq(@game.players[@killer_name].kills)
+      expect(game_hash[:kills][@killed_name]).to eq(@game.players[@killed_name].kills)
     end
   end
 end

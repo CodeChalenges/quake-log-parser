@@ -6,24 +6,37 @@ class Game
   def initialize
     @players = Hash.new
     @kills   = Array.new
+    @nkills  = 0
   end
 
   def assignKill(killer_name, killed_name, cause)
-    killer = getPlayerStats(killer_name)
+    # Assign a new death to killed player
     killed = getPlayerStats(killed_name)
+    killed.deaths += 1
 
-    killer.kills  = killer.kills  + 1
-    killed.deaths = killed.deaths + 1
-    @kills.push(KillEvent.new(killer, killed, cause))
+    if killer_name.eql?('<world>')
+      # If killed by <world>, killed player looses 1 kill
+      killed.kills -= 1
+    else
+      # Assign a kill to killer player
+      killer = getPlayerStats(killer_name)
+      killer.kills += 1
+
+      # Add a new kill entry on dictionary
+      @kills.push(KillEvent.new(killer, killed, cause))
+    end
+
+    # Increment game kills counter
+    @nkills += 1
   end
 
   def number_of_kills
-    @kills.length
+    @nkills
   end
 
   def to_hash
     {
-      total_kills: @kills.length,
+      total_kills: @nkills,
       players: @players.keys,
       kills: @players.hmap { |name, stats|
         { name => stats.kills }
