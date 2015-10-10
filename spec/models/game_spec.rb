@@ -34,4 +34,20 @@ describe Game do
       expect(@game.players.length ).to eq(2)
     end
   end
+
+  context 'Object to hash' do
+    before(:all) do
+      @game = Game.new
+      @killer = '#Killer'
+      @killed = '#Killed'
+      @cause  = '#Cause'
+
+      @game.assignKill(@killer, @killed, @cause)
+    end
+
+    it 'should create the correct hash' do
+      expected_hash = "{:total_kills=>#{@game.number_of_kills}, :players=>[\"#{@killer}\", \"#{@killed}\"], :kills=>{\"#{@killer}\"=>1, \"#{@killed}\"=>0}}"
+      expect(@game.to_hash.to_s).to eq(expected_hash)
+    end
+  end
 end

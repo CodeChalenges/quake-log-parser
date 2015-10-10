@@ -1,3 +1,5 @@
+require 'hmap'
+
 class Game
   attr_reader :players, :kills
 
@@ -17,6 +19,16 @@ class Game
 
   def number_of_kills
     @kills.length
+  end
+
+  def to_hash
+    {
+      total_kills: @kills.length,
+      players: @players.keys,
+      kills: @players.hmap { |name, stats|
+        { name => stats.kills }
+      }
+    }
   end
 
   private
