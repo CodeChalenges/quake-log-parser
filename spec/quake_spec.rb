@@ -1,8 +1,8 @@
 require 'spec_helper'
 
-describe Parser do
+describe Quake do
   before(:all) do
-    @parser = Parser.new
+    @parser = Quake.new
   end
 
   after(:each) do

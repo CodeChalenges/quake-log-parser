@@ -5,12 +5,12 @@ require 'version'
 
 Gem::Specification.new do |spec|
   spec.name          = "quake-log-parser"
-  spec.version       = QuakeLogParser::VERSION
+  spec.version       = QuakeVersion::VERSION
   spec.authors       = ["Mauricio Klein"]
   spec.email         = ["mauricio.klein.msk@gmail.com"]
   spec.description   = %q{A Quake log parser, written in Ruby}
-  spec.summary       = %q{A Quake log parser, written in Ruby}
-  spec.homepage      = ""
+  spec.summary       = %q{Generates informations collected from a Quake log file}
+  spec.homepage      = "https://bitbucket.org/mauricioklein/quake-log-parser"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files`.split($/)
@@ -19,5 +19,5 @@ Gem::Specification.new do |spec|
   spec.require_paths = ["lib"]
 
   spec.add_development_dependency "bundler", "~> 1.3"
-  spec.add_development_dependency "rake"
+  spec.add_runtime_dependency "hmap", "~> 0.1.0"
 end

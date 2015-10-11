@@ -1,3 +1,3 @@
-module QuakeLogParser
-  VERSION = "0.0.1"
+module QuakeVersion
+  VERSION = '1.0.0'
 end

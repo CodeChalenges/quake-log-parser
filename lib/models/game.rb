@@ -8,6 +8,8 @@
 #
 
 require 'hmap'
+require 'models/kill_event'
+require 'models/player_stats'
 
 class Game
   attr_reader :players, :kills
@@ -28,7 +30,7 @@ class Game
 
     if killer_name.eql?('<world>')
       # If killed by <world>, killed player looses 1 kill
-      killed.kills -= 1
+      killed.kills -= 1 if killed.kills > 0
     else
       # Assign a kill to killer player
       killer = getPlayerStats(killer_name)

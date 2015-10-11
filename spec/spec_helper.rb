@@ -7,7 +7,7 @@
 require_relative '../lib/models/kill_event'
 require_relative '../lib/models/game'
 require_relative '../lib/models/player_stats'
-require_relative '../lib/parser'
+require_relative '../lib/quake'
 
 RSpec.configure do |config|
   #config.treat_symbols_as_metadata_keys_with_true_values = true

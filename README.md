@@ -1,6 +1,6 @@
-# Quake::Log::Parser
+# Quake Log Parser
 
-TODO: Write a gem description
+A simple Quake log parser, written in Ruby.
 
 ## Installation
 

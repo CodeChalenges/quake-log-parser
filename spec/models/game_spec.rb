@@ -41,6 +41,24 @@ describe Game do
       expect(@game.number_of_kills).to eq(2)
       expect(@game.players.length ).to eq(2) # Only "#Killer" and "#Killed", not "<world>"
     end
+
+    it 'should discount a kill when killed by world' do
+      # "@killer" killed "@killed" two times:
+      # - @killer.kills = 2
+      # - @killed.kills = 0
+      @game.assignKill(@killer_name, @killed_name, @cause)
+      @game.assignKill(@killer_name, @killed_name, @cause)
+
+      # "<world>" killed each player once (should have their kills discounted):
+      # - @killer.kills = 1
+      # - @killed.kills = 0 (can't assign negative kills)
+      @game.assignKill('<world>', @killer_name, @cause)
+      @game.assignKill('<world>', @killed_name, @cause)
+
+      expect(@game.number_of_kills).to eq(4)
+      expect(@game.players[@killer_name].kills).to eq(1)
+      expect(@game.players[@killed_name].kills).to eq(0)
+    end
   end
 
   context 'Object to hash' do

@@ -1,7 +1,18 @@
-require "version"
-require "modules/parser_rules"
+#
+# QUAKE LOG PARSER CLASS:
+#
+# Top level class, responsable to parse log file and control
+# all metrics
+#
+# CreatedBy: Mauricio Klein (mauricio.klein.msk@gmail.com)
+# CreatedAt: Oct 10, 2015
+#
 
-class Parser
+require 'models/game'
+require 'modules/parser_rules'
+require 'version'
+
+class Quake
   attr_reader :games
 
   def initialize
@@ -30,6 +41,10 @@ class Parser
   def reset
     @current_game = nil
     @games.clear
+  end
+
+  def self.version
+    QuakeVersion::VERSION
   end
 
   private
