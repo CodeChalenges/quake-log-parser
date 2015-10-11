@@ -42,7 +42,7 @@ describe Game do
       expect(@game.players.length ).to eq(2) # Only "#Killer" and "#Killed", not "<world>"
     end
 
-    it 'should discount a kill when killed by world' do
+    it 'should discount a kill when killed by <world>' do
       # "@killer" killed "@killed" two times:
       # - @killer.kills = 2
       # - @killed.kills = 0

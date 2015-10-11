@@ -77,7 +77,7 @@ describe Quake do
     end
   end
 
-  context 'parse full game file' do
+  context 'parse log file with many games' do
     it 'should process correctly' do
       @parser.parse(File.expand_path(File.join(File.dirname(__FILE__), 'data/full_match.txt')))
       expect(@parser.games.length).to eq(21)
