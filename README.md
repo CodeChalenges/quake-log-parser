@@ -4,21 +4,23 @@ A simple Quake log parser, written in Ruby.
 
 ## Installation
 
-Add this line to your application's Gemfile:
+Build the gem and install:
 
-    gem 'quake-log-parser'
+    gem build quake-log-parser.gemspec
 
-And then execute:
-
-    $ bundle
-
-Or install it yourself as:
-
-    $ gem install quake-log-parser
+    gem install quake-log-parser-1.0.0.gem
 
 ## Usage
 
-TODO: Write usage instructions here
+    require 'quake'
+
+    quake = Quake.new # Create a new Quake object
+
+    quake.parse("{Path to log file}") # Parse a Quake log file
+
+    quake.games # Show all games
+
+    quake.first.to_hash # Show the first game summary
 
 ## Contributing
 
