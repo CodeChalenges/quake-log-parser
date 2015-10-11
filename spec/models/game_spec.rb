@@ -17,7 +17,7 @@ describe Game do
     end
 
     it 'should assign kill' do
-      @game.assignKill(@killer_name, @killed_name, @cause)
+      @game.assign_kill(@killer_name, @killed_name, @cause)
       expect(@game.number_of_kills).to eq(1)
       expect(@game.players.length ).to eq(2)
 
@@ -27,16 +27,16 @@ describe Game do
     end
 
     it 'should not duplicate players' do
-      @game.assignKill(@killer_name, @killed_name, @cause)
-      @game.assignKill(@killer_name, @killed_name, @cause)
+      @game.assign_kill(@killer_name, @killed_name, @cause)
+      @game.assign_kill(@killer_name, @killed_name, @cause)
 
       expect(@game.number_of_kills).to eq(2)
       expect(@game.players.length ).to eq(2)
     end
 
     it 'should assign <world> kill, but not create kill entry' do
-      @game.assignKill(@killer_name, @killed_name, @cause) # Assign a player -> player kill
-      @game.assignKill('<world>'   , @killed_name, @cause) # Assign a world  -> player kill
+      @game.assign_kill(@killer_name, @killed_name, @cause) # Assign a player -> player kill
+      @game.assign_kill('<world>'   , @killed_name, @cause) # Assign a world  -> player kill
 
       expect(@game.number_of_kills).to eq(2)
       expect(@game.players.length ).to eq(2) # Only "#Killer" and "#Killed", not "<world>"
@@ -46,14 +46,14 @@ describe Game do
       # "@killer" killed "@killed" two times:
       # - @killer.kills = 2
       # - @killed.kills = 0
-      @game.assignKill(@killer_name, @killed_name, @cause)
-      @game.assignKill(@killer_name, @killed_name, @cause)
+      @game.assign_kill(@killer_name, @killed_name, @cause)
+      @game.assign_kill(@killer_name, @killed_name, @cause)
 
       # "<world>" killed each player once (should have their kills discounted):
       # - @killer.kills = 1
       # - @killed.kills = 0 (can't assign negative kills)
-      @game.assignKill('<world>', @killer_name, @cause)
-      @game.assignKill('<world>', @killed_name, @cause)
+      @game.assign_kill('<world>', @killer_name, @cause)
+      @game.assign_kill('<world>', @killed_name, @cause)
 
       expect(@game.number_of_kills).to eq(4)
       expect(@game.players[@killer_name].kills).to eq(1)
@@ -71,9 +71,9 @@ describe Game do
     end
 
     it 'should create the correct hash' do
-      @game.assignKill(@player1, @player2, @cause1) # Player1 killed Player2 by Cause1
-      @game.assignKill(@player1, @player2, @cause2) # Player1 killed Player2 by Cause2
-      @game.assignKill(@player2, @player1, @cause1) # Player2 killed Player1 by Cause1
+      @game.assign_kill(@player1, @player2, @cause1) # Player1 killed Player2 by Cause1
+      @game.assign_kill(@player1, @player2, @cause2) # Player1 killed Player2 by Cause2
+      @game.assign_kill(@player2, @player1, @cause1) # Player2 killed Player1 by Cause1
 
       game_hash = @game.to_hash
 

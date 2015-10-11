@@ -6,7 +6,6 @@
 # CreatedBy: Mauricio Klein (mauricio.klein.msk@gmail.com)
 # CreatedAt: Oct 10, 2015
 #
-
 class PlayerStats
   attr_accessor :deaths, :kills
 

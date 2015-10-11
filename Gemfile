@@ -6,4 +6,8 @@ gemspec
 # Map a hash into another hash
 gem 'hmap'
 
-gem 'simplecov', :group => :test
+# Code coverage report
+gem 'simplecov', '~> 0.10.0', :group => :test
+
+# Static code analyzer
+gem 'rubocop', '~> 0.34.2', :group => :test

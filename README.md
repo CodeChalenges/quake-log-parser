@@ -10,15 +10,15 @@ In order to run them:
 
 ```sh
 
-$ bundle install
+$ bundle install # Install dependencies
 
-$ rspec
+$ rspec          # Run automated tests
+
+$ rubocop lib/   # Check if gem code is following ruby code guidelines
 
 ```
 
-This will show the tests status.
-
-Also, a _coverage/_ directory is created with code coverage report.
+Also, a _coverage/_ directory is created on project root with code coverage report.
 
 ## Installation
 
