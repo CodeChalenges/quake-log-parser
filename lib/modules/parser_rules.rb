@@ -13,11 +13,6 @@ module ParserRules
     /InitGame/
   end
 
-  # Regex to detect the ending of a game
-  def self.EndGame
-    /ShutdownGame/
-  end
-
   # Regex to detect a kill occurence in the current game
   def self.Kill
     /:\s([^:]+)\skilled\s(.*?)\sby\s[a-zA-Z_]+/

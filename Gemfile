@@ -5,3 +5,5 @@ gemspec
 
 # Map a hash into another hash
 gem 'hmap'
+
+gem 'simplecov', :group => :test

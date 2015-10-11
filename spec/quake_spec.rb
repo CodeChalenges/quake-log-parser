@@ -9,6 +9,12 @@ describe Quake do
     @parser.reset
   end
 
+  context 'informations' do
+    it 'should inform the correct parser version' do
+      expect(Quake.version).to eq(QuakeVersion::VERSION)
+    end
+  end
+
   context 'parse a single game with single kill' do
     it 'should process correctly' do
       # Should only create one game
