@@ -4,7 +4,7 @@ A simple Quake log parser, written in Ruby.
 
 ## Validation
 
-The gem can be validate using the unit tests.
+The gem can be validate using the _unit tests_.
 
 In order to run them:
 
@@ -47,11 +47,11 @@ quake = Quake.new
 quake.parse("{Path to log file}")
 
 # All games read from log file are
-# available on _games_ variable
+# available on 'games' variable
 quake.games
 
 # To show a game statistics, just call
-# _to_hash_ to game object
+# 'to_hash' to game object
 random_game = quake.games.sample
 random_game.to_hash
 
