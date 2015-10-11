@@ -16,6 +16,10 @@ $ rspec
 
 ```
 
+This will show the tests status.
+
+Also, a _coverage/_ directory is created with code coverage report.
+
 ## Installation
 
 Build the gem and install:
