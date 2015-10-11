@@ -2,25 +2,56 @@
 
 A simple Quake log parser, written in Ruby.
 
+## Validation
+
+The gem can be validate using the unit tests.
+
+In order to run them:
+
+```sh
+
+$ bundle install
+
+$ rspec
+
+```
+
 ## Installation
 
 Build the gem and install:
 
-    gem build quake-log-parser.gemspec
+```sh
 
-    gem install quake-log-parser-1.0.0.gem
+$ gem build quake-log-parser.gemspec
+
+$ gem install quake-log-parser-1.0.0.gem
+
+```
 
 ## Usage
 
-    require 'quake'
+All commands below can be run inside IRB:
 
-    quake = Quake.new # Create a new Quake object
+```ruby
 
-    quake.parse("{Path to log file}") # Parse a Quake log file
+require 'quake'
 
-    quake.games # Show all games
+# Create a new Quake object
+quake = Quake.new
 
-    quake.first.to_hash # Show the first game summary
+# Parse a given Quake log file
+quake.parse("{Path to log file}")
+
+# All games read from log file are
+# available on _games_ variable
+quake.games
+
+# To show a game statistics, just call
+# _to_hash_ to game object
+random_game = quake.games.sample
+random_game.to_hash
+
+```
 
 ## Contributing
 
