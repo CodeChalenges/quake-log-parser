@@ -44,6 +44,7 @@ require 'quake'
 quake = Quake.new
 
 # Parse a given Quake log file
+# (you can find some log files used during tests under 'spec/data/')
 quake.parse("{Path to log file}")
 
 # All games read from log file are
