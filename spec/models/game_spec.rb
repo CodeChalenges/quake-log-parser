@@ -5,6 +5,7 @@ describe Game do
     it 'should start with no players or kills' do
       game = Game.new
       expect(game.number_of_kills).to eq(0)
+      expect(game.players.length ).to eq(0)
     end
   end
 
