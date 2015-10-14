@@ -83,4 +83,16 @@ describe Quake do
       expect(@parser.games.length).to eq(21)
     end
   end
+
+  context 'parse a second log file' do
+    it 'should cleanup structure before parsing' do
+      @parser.parse(File.expand_path(File.join(File.dirname(__FILE__), 'data/full_match.txt')))
+      ngames = @parser.games.length
+
+      # Parse the file again: should cleanup the structure before parsing again
+      @parser.parse(File.expand_path(File.join(File.dirname(__FILE__), 'data/full_match.txt')))
+     
+      expect(@parser.games.length).to eq(ngames) 
+    end
+  end
 end

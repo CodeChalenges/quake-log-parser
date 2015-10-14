@@ -22,6 +22,9 @@ class Quake
   def parse(filepath)
     file = File.new(filepath)
 
+    # Cleanup structure
+    reset
+
     while (line = file.gets)
       process_line(line)
     end
