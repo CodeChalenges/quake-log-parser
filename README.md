@@ -1,6 +1,16 @@
+[![Build Status](https://travis-ci.org/mauricioklein/quake-log-parser.svg?branch=master)](https://travis-ci.org/mauricioklein/quake-log-parser)
+[![Code Climate](https://codeclimate.com/github/mauricioklein/quake-log-parser/badges/gpa.svg)](https://codeclimate.com/github/mauricioklein/quake-log-parser)
+[![Test Coverage](https://codeclimate.com/github/mauricioklein/quake-log-parser/badges/coverage.svg)](https://codeclimate.com/github/mauricioklein/quake-log-parser/coverage)
+
 # Quake Log Parser
 
 A simple Quake log parser, written in Ruby.
+
+This problem was proposed by [**Codeminer 42**](http://www.codeminer42.com/) on its admission process.
+
+## Requirements
+
+Problem requirements can be found [here](https://gist.github.com/akitaonrails/97310463c52467d2ecc6).
 
 ## Validation
 
