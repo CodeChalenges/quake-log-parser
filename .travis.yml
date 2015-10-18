@@ -5,4 +5,8 @@ install:
 
 script:
   - rspec
-  - rubocop lib/ 
+  - rubocop lib/
+
+addons:
+  code_climate:
+    repo_token: 5dbbadc8 
