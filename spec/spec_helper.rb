@@ -5,7 +5,10 @@
 #
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 
+require 'codeclimate-test-reporter'
 require 'simplecov'
+
+CodeClimate::TestReporter.start
 
 SimpleCov.start do
   # Groups
