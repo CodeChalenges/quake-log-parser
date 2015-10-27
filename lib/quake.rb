@@ -32,7 +32,7 @@ class Quake
     true
   rescue => err
     puts "Failed to read log file: #{err}"
-    err
+    raise err
   end
 
   def reset

@@ -91,8 +91,14 @@ describe Quake do
 
       # Parse the file again: should cleanup the structure before parsing again
       @parser.parse(File.expand_path(File.join(File.dirname(__FILE__), 'data/full_match.txt')))
-     
-      expect(@parser.games.length).to eq(ngames) 
+
+      expect(@parser.games.length).to eq(ngames)
+    end
+  end
+
+  context 'parse an unknown file' do
+    it 'should return an error' do
+      expect{@parser.parse('')}.to raise_error(Errno::ENOENT)
     end
   end
 end
