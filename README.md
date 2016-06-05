@@ -1,6 +1,7 @@
 [![Build Status](https://travis-ci.org/mauricioklein/quake-log-parser.svg?branch=master)](https://travis-ci.org/mauricioklein/quake-log-parser)
 [![Code Climate](https://codeclimate.com/github/mauricioklein/quake-log-parser/badges/gpa.svg)](https://codeclimate.com/github/mauricioklein/quake-log-parser)
 [![Test Coverage](https://codeclimate.com/github/mauricioklein/quake-log-parser/badges/coverage.svg)](https://codeclimate.com/github/mauricioklein/quake-log-parser/coverage)
+[![Dependency Status](https://gemnasium.com/badges/github.com/mauricioklein/quake-log-parser.svg)](https://gemnasium.com/github.com/mauricioklein/quake-log-parser)
 
 # Quake Log Parser
 
