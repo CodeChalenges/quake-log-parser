@@ -5,5 +5,5 @@
 # CreatedAt: Oct 10, 2015
 #
 module QuakeVersion
-  VERSION = '1.0.0'
+  VERSION = '1.0.0'.freeze
 end

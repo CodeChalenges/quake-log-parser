@@ -4,4 +4,4 @@ source 'https://rubygems.org'
 gemspec
 
 # Code climate reporter
-gem 'codeclimate-test-reporter', group: :test, require: nil
+gem 'codeclimate-test-reporter', '~> 0.5', group: :test, require: nil
